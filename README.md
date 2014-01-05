@@ -1,16 +1,22 @@
-█▀▄▀█ █▀▀█ █▀▀ █░█ █▀▀ █▀▀█ █▀▀▄ 
 
-█░▀░█ █░░█ █░░ █▀▄ ▀▀█ █░░█ █░░█ 
-
-▀░░░▀ ▀▀▀▀ ▀▀▀ ▀░▀ ▀▀▀ ▀▀▀▀ ▀░░▀ 
+mockson
+-------
 
 
-A powerful and flexible server for mocking API's of a RESTful services, for development purposes. 
+```````````````````````_````````````````````
+``_`__`___```___```___|`|`_____``___``_`__``
+`|`'_```_`\`/`_`\`/`__|`|/`/`__|/`_`\|`'_`\`
+`|`|`|`|`|`|`(_)`|`(__|```<\__`\`(_)`|`|`|`|
+`|_|`|_|`|_|\___/`\___|_|\_\___/\___/|_|`|_|
+````````````````````````````````````````````
+
+A powerful and flexible server for mocking API's of RESTful services, for development purposes. 
 
 Place some files with json templates into the `services` folder and the service will respond to RESTful calls for GET, 
 POST, PUT and DELETE.
 
-Each of us has at least once created JSON files for simulating API's, but these were usually just constructed from a single static object propagated without unique fields. 
+Have you ever created JSON files for simulating API's? 
+You probably did, but these were usually just constructed from a single static object propagated with no unique fields. 
 
 mockson was created to help frontend developers with this task.
 

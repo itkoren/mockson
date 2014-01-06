@@ -1,0 +1,81 @@
+[{
+	"serviceUrl": "users",
+	"verbs": ["get","post", "put"],
+	"headers": {
+	    "*": {
+			"XServedBy": "Mockson",
+			"XIpsum": "{{IPSUM}}",
+			"XRevision": ["{headers.XRevision}+1", "0"],
+			"q": ["{query.q}+1", "0"]
+		}
+	},
+	"latency":3000,
+	"cache":true,
+	"unwrap": {
+	    "get": true
+	},
+	"jsonp": "callback",
+	"templates": { 
+		"get": {
+			"users|5-10":[{
+				"id":"{{UUID}}",
+				"idx|+1":0,
+				"married|0-1":true,
+				"gender":"{{GENDER}}",                
+				"name":"{{NAME}}",
+				"sons":null,
+				"daughters|0-3":[{
+					"age|0-31":0,
+					"name":"{{NAME[FIRST]}}"
+				}]
+			}]
+		},
+		"post": {
+			"id":"{{UUID}}"
+		}
+	},
+	"empty": {
+	    "*": {
+	        "status": 204,
+	        "headers": {},
+	        "body": {}
+	    }
+	}
+},
+{
+	"serviceUrl": "users/:id",
+	"verbs": ["get", "put", "delete"],
+	"headers": {
+		"*": {
+			"XServedBy": "Mockson",
+			"XIpsum": "{{IPSUM}}",
+			"XRevision": "{headers.XRevision}"
+		},
+		"get": {
+			"XServedBy": "Mockson",
+			"XRevision": "{headers.XRevision}"
+		}
+		
+	},
+	"latency":500,
+	"matches": {
+		"service": "users",
+		"*": { "id": "{params.id}", "name": ["moshe", "ezra"] },
+		"get": { "id": "{params.id}" },
+		"put": [{"{query.id}":"={id}"}]
+	},
+	"empty": {
+	    "*": {
+	        "status": 200,
+	        "headers": {},
+	        "body": {}
+	    },
+	    "get": {
+	        "status": 204,
+	        "headers": {
+	            "204": true
+	        },
+	        "body": { "data": "No Item Found" }
+	    }
+	}
+}]

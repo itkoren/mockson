@@ -1,0 +1,24 @@
+{"level":"info","message":"Create and Configure the mockson Server","timestamp":"2014-01-05T09:24:07.467Z"}
+{"options":{"toobusy":true,"servicesDirectory":"./services/","allowedDomains":["*"]},"level":"debug","message":"","timestamp":"2014-01-05T09:24:07.474Z"}
+{"level":"info","message":"Load services from './services/'","timestamp":"2014-01-05T09:24:07.617Z"}
+{"level":"info","message":"Load service '/var/lib/stickshift/52bfe482e0b8cd446f000344/app-root/data/722765/services/users.json'","timestamp":"2014-01-05T09:24:07.625Z"}
+{"0":{"serviceUrl":"users","verbs":["get","post","put"],"headers":{"*":{"XServedBy":"Mockson","XIpsum":"{{IPSUM}}","XRevision":["{headers.XRevision}+1","0"],"q":["{query.q}+1","0"]}},"latency":3000,"cache":true,"unwrap":{"get":true},"jsonp":"callback","templates":{"get":{"users|5-10":[{"id":"{{UUID}}","idx|+1":0,"married|0-1":true,"gender":"{{GENDER}}","name":"{{NAME}}","sons":null,"daughters|0-3":[{"age|0-31":0,"name":"{{NAME[FIRST]}}"}]}]},"post":{"id":"{{UUID}}"}},"empty":{"*":{"status":204,"headers":{},"body":{}}}},"1":{"serviceUrl":"users/:id","verbs":["get","put","delete"],"headers":{"*":{"XServedBy":"Mockson","XIpsum":"{{IPSUM}}","XRevision":"{headers.XRevision}"},"get":{"XServedBy":"Mockson","XRevision":"{headers.XRevision}"}},"latency":500,"matches":{"service":"users","*":{"id":"{params.id}","name":["moshe","ezra"]},"get":{"id":"{params.id}"},"put":[{"{query.id}":"={id}"}]},"empty":{"*":{"status":200,"headers":{},"body":{}},"get":{"status":204,"headers":{"204":true},"body":{"data":"No Item Found"}}}},"level":"debug","message":"","timestamp":"2014-01-05T09:24:07.674Z"}
+{"level":"info","message":"Set route: GET users : 3000 ms","timestamp":"2014-01-05T09:24:07.681Z"}
+{"level":"info","message":"Set route: POST users : 3000 ms","timestamp":"2014-01-05T09:24:07.687Z"}
+{"level":"info","message":"Set route: PUT users : 3000 ms","timestamp":"2014-01-05T09:24:07.687Z"}
+{"level":"info","message":"Set route: GET users/:id : 500 ms","timestamp":"2014-01-05T09:24:07.687Z"}
+{"level":"info","message":"Set route: PUT users/:id : 500 ms","timestamp":"2014-01-05T09:24:07.688Z"}
+{"level":"info","message":"Set route: DELETE users/:id : 500 ms","timestamp":"2014-01-05T09:24:07.688Z"}
+{"level":"info","message":"Services Loaded","timestamp":"2014-01-05T09:24:07.688Z"}
+{"level":"info","message":"Configure static pages","timestamp":"2014-01-05T09:24:07.697Z"}
+{"level":"info","message":"Start the mockson Server","timestamp":"2014-01-05T09:24:07.698Z"}
+{"level":"info","message":"mockson server listening at 127.11.152.1:8080","timestamp":"2014-01-05T09:24:07.778Z"}
+{"level":"info","message":"Got request to 'users'","timestamp":"2014-01-05T09:25:01.583Z"}
+{"level":"info","message":"Process response for 'users'","timestamp":"2014-01-05T09:25:04.584Z"}
+{"level":"info","message":"Process headers","timestamp":"2014-01-05T09:25:04.584Z"}
+{"XServedBy":"Mockson","XIpsum":"qui","XRevision":"0","q":"0","level":"debug","message":"","timestamp":"2014-01-05T09:25:04.590Z"}
+{"level":"info","message":"Process status","timestamp":"2014-01-05T09:25:04.591Z"}
+{"level":"debug","message":"200","timestamp":"2014-01-05T09:25:04.600Z"}
+{"level":"info","message":"Process body","timestamp":"2014-01-05T09:25:04.602Z"}
+{"0":{"id":"2678e93f-ab41-4e21-8e5f-d0042b7e9ebb","idx":0,"married":false,"gender":"Male","name":"Brian Cartwright","sons":null,"daughters":[]},"1":{"id":"c8b2fed2-8158-4b97-9029-2513a8d7966d","idx":1,"married":false,"gender":"Female","name":"Miss Tremaine Pouros","sons":null,"daughters":[{"age":15,"name":"Amalia"}]},"2":{"id":"704517aa-6ea3-4599-b6c6-195c7c7f58a1","idx":2,"married":false,"gender":"Female","name":"Dillon Wilderman","sons":null,"daughters":[{"age":1,"name":"Johnpaul"}]},"3":{"id":"bbd4a52a-3275-40cd-997f-8f17e3fda08d","idx":3,"married":true,"gender":"Female","name":"Colt Fisher","sons":null,"daughters":[{"age":19,"name":"Ava"},{"age":28,"name":"Gladyce"}]},"4":{"id":"8f3433c2-5b95-4c19-9c1f-5fbe381823b3","idx":4,"married":false,"gender":"Female","name":"Augusta Maggio","sons":null,"daughters":[]},"5":{"id":"2f9715b3-38b6-43b6-baa1-6eaf2f340b19","idx":5,"married":true,"gender":"Female","name":"Stacy Huels","sons":null,"daughters":[]},"level":"debug","message":"","timestamp":"2014-01-05T09:25:04.678Z"}
+{"level":"info","message":"Response for 'users' was processed","timestamp":"2014-01-05T09:25:04.686Z"}

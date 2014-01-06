@@ -1,0 +1,18 @@
+{
+  "logging": {
+    "system": {
+      "console": {
+        "level": "debug",
+        "colorize": true
+      },
+      "dailyRotateFile": {
+        "level": "debug",
+        "timestamp": true,
+        "json": true,
+        "filename": "logs/system",
+        "datePattern": ".yyyy-MM-dd.log",
+        "maxfiles": 5
+      }
+    }
+  }
+}

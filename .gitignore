@@ -1,5 +1,8 @@
 .pidfile.pid
-node_modules
+.settings.xml
+node_modules/
+.c9revisions/
+.settings
 logs/*.*
 client/*.*
 *~

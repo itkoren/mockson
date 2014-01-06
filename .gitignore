@@ -1,0 +1,5 @@
+.pidfile.pid
+node_modules
+logs/*.*
+*~
+client/*.*

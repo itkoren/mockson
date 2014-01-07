@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "A json mock service with an 'express' server",
   "main": "server.js",
-  "repository": "",
   "author": "Itai Koren <itkoren@gmail.com>",
   "repository": {
     "type": "git",
@@ -18,17 +17,17 @@
     "stub"
   ],
   "dependencies": {
-    "async": "~0.2.8",
-    "express": "~3.2.4",
-    "Faker": "~0.5.11",
-    "cors": "~2.1.1",
-    "node-uuid": "~1.4.1",
-    "lodash-node": "~2.4.1",
-    "winston": "~0.7.2",
-    "winston-config": "~0.4.2",
-    "mathjs": "~0.17.1",
-    "express-domain-middleware": "~0.1.0",
-    "toobusy-js": "~0.3.0"
+    "async": "latest",
+    "express": "latest",
+    "Faker": "latest",
+    "cors": "latest",
+    "node-uuid": "latest",
+    "lodash-node": "latest",
+    "winston": "latest",
+    "winston-config": "latest",
+    "mathjs": "latest",
+    "express-domain-middleware": "latest",
+    "toobusy-js": "latest"
   },
   "license": "MIT"
 }

@@ -1,0 +1,14 @@
+{
+    "users|5-10":[{
+		"id":"{{UUID}}",
+		"idx|+1":0,
+		"married|0-1":true,
+		"gender":"{{GENDER}}",                
+		"name":"{{NAME}}",
+		"sons":null,
+		"daughters|0-3":[{
+			"age|0-31":0,
+			"name":"{{NAME[FIRST]}}"
+		}]
+	}]
+}

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app>
   <head>
-    <title>mockson Template</title>
+    <title>mockson templates</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-responsive.min.css">
@@ -13,10 +13,15 @@
     <script>
       function TemplateController($scope, $http) {
         $scope.template = '';
+        $scope.supports = {};
+        $scope.supports.keywords = [
+            "GG",
+            "LL"
+        ];
         $http.get("./templates/users.json")
             .success(function(data, status, headers, config) {
                 if (data) {
-                    $scope.template = data && JSON.stringify(data);
+                    $scope.template = data && JSON.stringify(data, null, 2);
                 }
             })
             .error(function(data, status, headers, config) {
@@ -33,18 +38,22 @@
                             "name":"{{NAME[FIRST]}}"
                         }]
                     }]
-                });
+                }, null, 2);
             });
             
         $scope.send = function send() {
+          $scope.block = true;
           $http.post('./__mockson/generator', $scope.template)
             .success(function(data, status, headers, config){
                 if (data) {
-                    $scope.json = data && JSON.stringify(data);
+                    $scope.json = data && JSON.stringify(data, null, 2);
                 }
+                
+                $scope.block = false;
             })
             .error(function(data, status, headers, config) {
                 alert("Error generating JSON from template: " + data);
+                $scope.block = false;
             });
         };
       }
@@ -60,16 +69,9 @@
         </div>
       </div>
       <div class="page-header">
-        <h1>mockson Template</h1>
+        <h1>mockson templates</h1>
       </div>
       <div class="">
-        <div class="row span9">
-          <ul class="nav nav-list well">
-            <li class="nav-header">Local Users</li>
-            <li ng-repeat="user in roster" ng-bind="user">
-            </li>
-          </ul>
-        </div>
         <div class="row span9">
           <form ng-submit="send()">
             <table class="table table-striped table-bordered">
@@ -85,20 +87,55 @@
                   <td class="span5" ng-bind="msg.text"></td>
                 </tr>
                 <tr>
-                  <td class="span5"><textarea class="span4" ng-model="template" placeholder="mockson Template"></textarea>    </td>
-                  <td class="span5"><textarea class="span4" ng-model="json" placeholder="mockson Generated JSON"></textarea></td>
+                  <td class="span5"><textarea class="span4" rows="18" ng-model="template" placeholder="mockson Template"></textarea></td>
+                  <td class="span5"><textarea class="span4" rows="18" ng-model="json" placeholder="mockson Generated JSON"></textarea></td>
                 </tr>
                 <tr>
-                  <td colspan="2" class="span9"><input type="submit" class="span2 btn btn-primary" value="Send" ng-disabled="!template" /></td>
+                  <td colspan="2">
+                    <div class="row offset6">
+                        <input type="submit" class="span2 btn btn-primary" value="Send" ng-disabled="!template || block" />
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </form>
         </div>
+        <div class="row span9">
+          <ul class="nav nav-list well" ng-init="keywords = [
+                                                    { name: '{{NUMBER}}', desc: '' },
+                                                    { name: '{{LETTER}}', desc: '' },
+                                                    { name: '{{NAME}}', desc: '' },
+                                                    { name: '{{NAME[FIRST]}}', desc: '' },
+                                                    { name: '{{NAME[LAST]}}', desc: '' },
+                                                    { name: '{{GENDER}}', desc: '' },
+                                                    { name: '{{EMAIL}}', desc: '' },
+                                                    { name: '{{DOMAIN}}', desc: '' },
+                                                    { name: '{{IP}}', desc: '' },
+                                                    { name: '{{DATE[YYYY]}}', desc: '' },
+                                                    { name: '{{DATE[DD]}}', desc: '' },
+                                                    { name: '{{DATE[MM]}}', desc: '' },
+                                                    { name: '{{TIME[HH]}}', desc: '' },
+                                                    { name: '{{TIME[MM]}}', desc: '' },
+                                                    { name: '{{TIME[SS]}}', desc: '' },
+                                                    { name: '{{ZIP}}', desc: '' },
+                                                    { name: '{{CITY}}', desc: '' },
+                                                    { name: '{{STREET}}', desc: '' },
+                                                    { name: '{{PHONE}}', desc: '' },
+                                                    { name: '{{UUID}}', desc: '' },
+                                                    { name: '{{IPSUM}}', desc: '' },
+                                                    { name: '{{IPSUM[N]}}', desc: '' }
+                                                ]">
+            <li class="nav-header">Supported Keywords</li>
+            <li ng-repeat="keyword in keywords">
+                [{{$index + 1}}] {{keyword.name}} - {{keyword.desc}}.
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/angular.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/angular.min.js"></script>
   </body>
 </html>

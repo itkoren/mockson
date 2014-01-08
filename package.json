@@ -1,12 +1,21 @@
 {
   "name": "mockson",
-  "version": "0.0.0",
-  "description": "A json mock service with an 'express' server",
-  "main": "server.js",
-  "author": "Itai Koren <itkoren@gmail.com>",
+  "version": "0.0.1",
+  "description": "A server for mocking API's of RESTful services with an 'express' server",
+  "homepage": "http://github.com/itkoren/mockson",
+  "author": {
+    "name":"Itai Koren",
+    "email":"itkoren@gmail.com"
+  },
+  "contributors": [
+    {
+      "name":"Itai Koren",
+      "email":"itkoren@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/itkoren/mockson.git"
+    "url": "http://github.com/itkoren/mockson.git"
   },
   "keywords": [
     "RESTful",
@@ -29,5 +38,12 @@
     "express-domain-middleware": "latest",
     "toobusy-js": "latest"
   },
-  "license": "MIT"
+  "main": "server",
+  "license": {
+    "type": "MIT",
+    "url": "http://github.com/itkoren/mockson/blob/master/MIT-LICENSE.txt"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
 }
